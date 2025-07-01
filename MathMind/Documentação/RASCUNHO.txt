@@ -1,55 +1,47 @@
-  <nav class="menu">
-        <ul class="menu-suspenso">Matemática Básica
-            <li><a href="#"></a>Soma, Subtração, Multiplicação, Divisão</li>
-            <li><a href="#"></a>Porcentagem</li>
-            <li><a href="#"></a>Regra de três simples e composta</li>
-            <li><a href="#"></a>Média (simples e ponderada)</li>
-            <li><a href="#"></a>Mínimo Múltiplo Comum (MMC)</li>
-            <li><a href="#"></a>Máximo Divisor Comum (MDC)</li>
-            <li><a href="#"></a>Potenciação e Radiciação</li>
-            <li><a href="#"></a>Fatorial</li>
-            <li><a href="#"></a>Número primo (verificação)</li>
-        </ul>
-
-        <ul> Matemática Aplicada / Ensino Médio
-            <li><a href="#"></a>Equação de 1º grau </li>
-            <li><a href="#"></a>Equação de 2º grau (Bhaskara)</li>
-            <li><a href="#"></a>Sistema de equações (substituição ou escalonamento)</li>
-            <li><a href="#"></a>Produtos Notáveis (quadrado da soma, diferença de quadrados etc.)</li>
-            <li><a href="#"></a>Progressão Aritmética (PA)</li>
-            <li><a href="#"></a>Progressão Geométrica (PG)</li>
-        </ul>
-
-        <ul>Geometria
-            <li><a href="#"></a>Área e perímetro de figuras planas (quadrado, triângulo, círculo, retângulo, trapézio
-                etc.)</li>
-            <li><a href="#"></a>Volume de sólidos (cubo, paralelepípedo, esfera, cilindro, cone, pirâmide)</li>
-            <li><a href="#"></a>Teorema de Pitágoras</li>
-            <li><a href="#"></a>Teorema de Tales</li>
-            <li><a href="#"></a>Relações trigonométricas básicas (seno, cosseno, tangente)</li>
-        </ul>
-
-        <ul>Estatística e Probabilidade
-            <li><a href="#"></a>Média, Mediana e Moda</li>
-            <li><a href="#"></a>Desvio padrão</li>
-            <li><a href="#"></a>Variância</li>
-            <li><a href="#"></a>Cálculo de probabilidade simples</li>
-            <li><a href="#"></a>Combinação e Permutação</li>
-        </ul>
-
-        <ul>Financeiros
-            <li><a href="#"></a>Juros simples</li>
-            <li><a href="#"></a>Juros compostos</li>
-            <li><a href="#"></a>Valor Presente Líquido (VPL)</li>
-            <li><a href="#"></a>Valor Futuro</li>
-            <li><a href="#"></a>Tabela Price (empréstimos)</li>
-            <li><a href="#"></a>Cálculo de parcelas de financiamento</li>
-            <li><a href="#"></a>Conversão de taxas (mensal ↔ anual)</li>
-        </ul>
-    </nav>
+29/06/2025
+Foi ajustado title.
+inserido o rodapé
+Criado o arquivo home
+Ajustado identação do código.
 
 
 
-    <section>
 
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
