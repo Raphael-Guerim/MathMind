@@ -14,11 +14,9 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="estilo.css">
-
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary ">
 
         <!--ìcone do HOME-->
@@ -44,18 +42,47 @@
                             aria-expanded="false">Matemática Básica</a>
                         <ul class="dropdown-menu">
 
-                            <li onclick="carregarCalculo()">
-                                <a class="dropdown-item">Soma, Subtração,
-                                    Multiplicação, Divisão
+                            <li onclick="carregarCalculo('explicacao-ssmd','calculos-ssmd')">
+                                <a class="dropdown-item">
+                                    Soma, Subtração, Multiplicação, Divisão
                                 </a>
                             </li>
-                            <li><a class="dropdown-item" href="#">Porcentagem</a></li>
-                            <li><a class="dropdown-item" href="#">Regra de três simples e composta</a></li>
-                            <li><a class="dropdown-item" href="#">Média (simples e ponderada)</a></li>
-                            <li><a class="dropdown-item" href="#">Mínimo Múltiplo Comum (MMC)</a></li>
-                            <li><a class="dropdown-item" href="#">Potenciação e Radiciação</a></li>
-                            <li><a class="dropdown-item" href="#">Fatorial</a></li>
-                            <li><a class="dropdown-item" href="#">Número primo (verificação)</a></li>
+
+                            <li onclick="carregarCalculo('explicacao-porcentagem','calculos-porcentagem')">
+                                <a class="dropdown-item">
+                                    Porcentagem
+                                </a>
+                            </li>
+
+                            <li onclick="carregarCalculo('explicacao-regra-tres','calculos-regra-tres')">
+                            <a class="dropdown-item">
+                                Regra de três simples e composta
+                                </a>
+                            </li>
+
+                            <li onclick="carregarCalculo('explicacao-media','calculos-media')">
+                                <a class="dropdown-item">
+                                    Média (simples e ponderada)
+                                </a>
+                            </li>
+
+                            <li onclick="carregarCalculo('explicacao-mmc','calculos-mmc')">
+                                <a class="dropdown-item">
+                                    Mínimo Múltiplo Comum (MMC)
+                                </a>
+                            </li>
+
+                            <li onclick="carregarCalculo('explicacao-poten-radic','calculos-poten-radic')">
+                                <a class="dropdown-item">
+                                    Potenciação e Radiciação
+                                </a>
+                            </li>
+                            <li onclick="carregarCalculo('explicacao-Fatorial','calculos-Fatorial')">
+                                <a class="dropdown-item">
+                                    Fatorial
+                                </a>
+                            </li>
+                            <li><a class="dropdown-item">Número primo (verificação)</a></li>
 
                         </ul>
                     </li>
@@ -65,8 +92,8 @@
                             aria-expanded="false">Matemática Aplicada</a>
                         <ul class="dropdown-menu">
 
-                            <li><a class="dropdown-item" href="#">Equação de 1º grau</a></li>
-                            <li><a class="dropdown-item" href="#">Equação de 2º grau (Bhaskara)</a></li>
+                            <li><a class="dropdown-item">Equação de 1º grau</a></li>
+                            <li><a class="dropdown-item">Equação de 2º grau (Bhaskara)</a></li>
                             <li><a class="dropdown-item" href="#">Sistema de equações (substituição ou
                                     escalonamento)</a></li>
                             <li><a class="dropdown-item" href="#">Produtos Notáveis (quadrado da soma, diferença de
@@ -147,64 +174,73 @@
                     <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
                     <button class="btn btn-outline-success" type="submit">Pesquisar</button>
                 </form>
-
             </div>
         </div>
     </nav>
 
+    <!--<h1 class="text-center">Seja bem vindo ao MathMind</h1>-->
+
+
+    <!-- Estrutura da área principal da página que divide o conteúdo em duas colunas:
+     - A primeira coluna exibe os cálculos (conteúdo-calculo)
+     - A segunda coluna exibe a explicação teórica (conteudo-explicação)-->
     <div class="container-fluid main-content">
         <div class="row row-cols-1 row-cols-sm-2 h-100">
             <div class="col border-end d-flex align-items-center justify-content-center bg-light">
-                <p>
-                    ➕ Soma
-                    Como fazer: Adicione os números.
-                    Exemplo: 7 + 3 = 10
-                    Uso: Total de produtos, salários, pontos.<br><br><br>
-                    ➖ Subtração
-                    Como fazer: Subtraia um número do outro.
-                    Exemplo: 50 - 20 = 30
-                    Uso: Troco, diferenças, controle de gastos.<br><br><br>
-
-                    ✖️ Multiplicação
-                    Como fazer: Multiplique os valores.
-                    Exemplo: 8 × 5 = 40
-                    Uso: Produção, salário por hora, receitas.<br><br><br>
-
-                    ➗ Divisão
-                    Como fazer: Divida um número pelo outro.
-                    Exemplo: 12 ÷ 4 = 3
-                    Uso: Dividir contas, valor por unidade.<br><br><br>
-                </p>
-
-            </div>
-            <div class="col d-flex align-items-center justify-content-center bg-light">
                 <!-- Aqui o conteúdo será inserido dinamicamente -->
                 <div id="conteudo-calculo"></div>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center bg-light">
+                <div id="conteudo-explicação"></div>
             </div>
         </div>
     </div>
 
+    <!--Permite atualizar apenas partes específicas da interface com base nas ações do usuário.
+Carrega duas seções do arquivo calculos.html e insere na página com seus scripts-->
     <script>
-        function carregarCalculo() {
+        function carregarCalculo(id1, id2) {
             fetch('calculos.html')
                 .then(res => res.text())
                 .then(html => {
-                    const div = document.getElementById('conteudo-calculo');
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
 
-                    // Insere o conteúdo HTML
-                    div.innerHTML = html;
+                    // Primeiro conteúdo (cálculo)
+                    const secao1 = doc.getElementById(id1);
+                    const destino1 = document.getElementById('conteudo-calculo');
+                    destino1.innerHTML = secao1 ? secao1.innerHTML : '<p>Conteúdo não encontrado.</p>';
 
-                    // Executa manualmente o <script> que veio junto
-                    const scripts = div.querySelectorAll('script');
-                    scripts.forEach(script => {
-                        const novoScript = document.createElement('script');
-                        novoScript.textContent = script.textContent;
-                        document.body.appendChild(novoScript);
-                    });
+                    if (secao1) {
+                        const scripts1 = secao1.querySelectorAll('script');
+                        scripts1.forEach(script => {
+                            const novoScript = document.createElement('script');
+                            novoScript.textContent = script.textContent;
+                            document.body.appendChild(novoScript);
+                        });
+                    }
+
+                    // Segundo conteúdo (descrição)
+                    const secao2 = doc.getElementById(id2);
+                    const destino2 = document.getElementById('conteudo-explicação');
+                    if (destino2) {
+                        destino2.innerHTML = secao2 ? secao2.innerHTML : '';
+                    }
+
+                    if (secao2) {
+                        const scripts2 = secao2.querySelectorAll('script');
+                        scripts2.forEach(script => {
+                            const novoScript = document.createElement('script');
+                            novoScript.textContent = script.textContent;
+                            document.body.appendChild(novoScript);
+                        });
+                    }
                 });
         }
     </script>
 
+    <!-- Rodapé fixo na parte inferior da página com fundo escuro e texto branco,
+     exibindo os direitos autorais e o nome do desenvolvedor -->
     <footer class="bg-dark text-white py-3 fixed-bottom">
         <div class="container">
             <div class="row">
@@ -214,8 +250,6 @@
             </div>
         </div>
     </footer>
-
-
 </body>
 
 </html>

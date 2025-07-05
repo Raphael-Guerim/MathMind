@@ -1,42 +1,294 @@
 <!--Esse arquivo esta responsável pelo cálculos-->
 
 <!--Essa seção é responsável pela parte de soma, subtração, multiplicação e divisão -->
-<section id="soma">
-    <h2>Soma</h2>
-    <input type="number" id="n1">
-    <input type="number" id="n2">
 
-    <button onclick="somar()">+</button>
-    <button onclick="subtracao()">-</button>
-    <button onclick="multiplicacao()">*</button>
-    <button onclick="adicao()">/</button>
-    
-    <p>Resultado: <span id="resultado"></span></p>
+<section id="explicacao-ssmd">
+    <p>
+        ➕ Soma
+        Como fazer: Adicione os números.
+        Exemplo: 7 + 3 = 10
+        Uso: Total de produtos, salários, pontos.<br><br><br>
+
+        ➖ Subtração
+        Como fazer: Subtraia um número do outro.
+        Exemplo: 50 - 20 = 30
+        Uso: Troco, diferenças, controle de gastos.<br><br><br>
+
+        ✖️ Multiplicação
+        Como fazer: Multiplique os valores.
+        Exemplo: 8 × 5 = 40
+        Uso: Produção, salário por hora, receitas.<br><br><br>
+
+        ➗ Divisão
+        Como fazer: Divida um número pelo outro.
+        Exemplo: 12 ÷ 4 = 3
+        Uso: Dividir contas, valor por unidade.<br><br><br>
+    </p>
+
+</section>
+
+<section id="calculos-ssmd">
+
+    <input type="number" id="n1" placeholder="Digite o primeiro número">
+    <input type="number" id="n2" placeholder="Digite o segundo número">
+
+    <select id="operacao">
+        <option value="soma">Soma</option>
+        <option value="subtracao">Subtração</option>
+        <option value="multiplicacao">Multiplicação</option>
+        <option value="divisao">Divisão</option>
+    </select>
+
+    <button onclick="Calc()">Calcular</button>
+
+    <p id="resultado"></p>
+
 
     <script>
-        function somar() {
-            const n1 = parseInt(document.getElementById('n1').value);
-            const n2 = parseInt(document.getElementById('n2').value);
-            document.getElementById('resultado').innerText = n1 + n2;
-        }
-
-        function subtracao() {
-            const n1 = parseInt(document.getElementById('n1').value);
-            const n2 = parseInt(document.getElementById('n2').value);
-            document.getElementById('resultado').innerText = n1 - n2;
-        }
-
-        function multiplicacao() {
+        function Calc() {
             const n1 = parseFloat(document.getElementById('n1').value);
             const n2 = parseFloat(document.getElementById('n2').value);
-            document.getElementById('resultado').innerText = n1 * n2;
+            const operacao = document.getElementById('operacao').value;
+            let resultado;
+
+            if (operacao === "soma") {
+                resultado = n1 + n2;
+            } else if (operacao === "subtracao") {
+                resultado = n1 - n2;
+            } else if (operacao === "multiplicacao") {
+                resultado = n1 * n2;
+            } else if (operacao === "divisao") {
+                if (n2 !== 0) {
+                    resultado = n1 / n2;
+                } else {
+                    resultado = "Erro: divisão por zero";
+                }
+            } else {
+                resultado = "Operação inválida";
+            }
+
+            document.getElementById('resultado').innerText = resultado;
         }
 
-        function adicao() {
-            const n1 = parseFloat(document.getElementById('n1').value);
-            const n2 = parseFloat(document.getElementById('n2').value);
-            document.getElementById('resultado').innerText = n1 / n2;
-        }
 
     </script>
 </section>
+
+<section id="explicacao-porcentagem">
+    <p>
+        % Porcentagem<br>
+        Como fazer: Multiplique o valor pela porcentagem e divida por 100.<br>
+        Exemplo: 200 × 10% = 200 × 10 ÷ 100 = 20<br>
+        Uso: Descontos, acréscimos, juros, análises de desempenho.
+    </p>
+</section>
+
+<section id="calculos-porcentagem">
+
+    <input type="number" id="p1" placeholder="Digite o valor">
+    <input type="number" id="p2" placeholder="Digite a porcentagem">
+
+    <button onclick="Porcentagem()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function Porcentagem() {
+            const p1 = parseFloat(document.getElementById('p1').value);
+            const p2 = parseFloat(document.getElementById('p2').value);
+            let resultado;
+
+            if (!isNaN(p1) && !isNaN(p2)) {
+                resultado = (p1 * p2) / 100;
+                document.getElementById('resultado').innerText = `Resultado: ${resultado}`;
+            } else {
+                document.getElementById('resultado').innerText = "Por favor, preencha os dois campos corretamente.";
+            }
+        }
+    </script>
+
+</section>
+
+<section id="explicacao-regra-tres">
+    <p>
+        🔁 Regra de Três
+        O que é:
+        A Regra de Três é usada para encontrar um valor desconhecido em uma proporção entre grandezas. Ela pode ser
+        simples (com 3 valores) ou composta (com mais de duas relações), e também pode ser de relação direta ou inversa.
+    </p>
+
+    <p>
+        ✅ Como saber se é Direta ou Inversa:
+        Direta: Quando uma grandeza aumenta, a outra também aumenta.
+        Exemplo: Quanto mais produtos você compra, maior o valor a pagar.
+        Inversa: Quando uma grandeza aumenta, a outra diminui.
+        Exemplo: Quanto mais pessoas trabalhando, menos tempo leva para terminar um serviço.
+    </p>
+
+    <p>
+        🧠 Onde é usada:
+        Cálculo de preços em quantidade, Escalas de mapas, Receitas culinárias, Conversão de unidades, Planejamento de
+        tempo, produtividade e custos.
+    </p>
+
+</section>
+
+<section id="calculos-regra-tres">
+
+    <h1>em produção</h1>
+
+</section>
+
+<section id="explicacao-media">
+    <p>
+        ➗ Média
+        O que é:
+        A média é um valor que representa o equilíbrio de um conjunto de números. A mais comum é a **média aritmética**,
+        onde somamos todos os valores e dividimos pela quantidade de elementos.
+    </p>
+
+    <p>
+        ✅ Tipos de Média:
+        Média Simples: soma de todos os valores dividida pela quantidade.
+        Exemplo: (5 + 7 + 8) ÷ 3 = 6,67
+        Média Ponderada: cada valor tem um peso. Multiplica-se cada valor por seu peso, soma-se tudo e divide-se pela
+        soma dos pesos.
+        Exemplo: (5×2 + 7×3) ÷ (2+3) = 6,4.
+    </p>
+
+    <p>
+        🧠 Onde é usada:
+        Boletins escolares, Análise de desempenho, Relatórios estatísticos, Avaliações de pesquisas e testes, Controle
+        de qualidade.
+    </p>
+
+</section>
+
+<section id="calculos-media">
+    <h1>em produção</h1>
+
+</section>
+
+<section id="explicacao-mmc">
+    <p>
+        📏 MMC e MDC
+        O que é:
+        MMC (Mínimo Múltiplo Comum) é o menor número múltiplo comum entre dois ou mais números.
+        MDC (Máximo Divisor Comum) é o maior número que divide dois ou mais números ao mesmo tempo.
+    </p>
+
+    <p>
+        ✅ Como calcular:
+        MMC: fatorar os números e multiplicar os fatores comuns e não comuns com maior expoente.
+        MDC: fatorar os números e multiplicar apenas os fatores comuns com menor expoente.
+
+        Exemplo MMC de 6 e 8:
+        6 = 2 × 3
+        8 = 2³
+        MMC = 2³ × 3 = 24
+
+        Exemplo MDC de 12 e 18:
+        12 = 2² × 3
+        18 = 2 × 3²
+        MDC = 2 × 3 = 6
+    </p>
+
+    <p>
+        🧠 Onde é usado:
+        Resolver frações com denominadores diferentes,
+        Sincronizar ciclos (como horários de ônibus),
+        Dividir objetos ou tarefas em partes iguais,
+        Resolver problemas com divisões exatas,
+        Matemática básica e concursos.
+    </p>
+
+</section>
+
+<select id="calculos-mmc">
+    <h1>em produção</h1>
+</select>
+
+<select id="explicacao-poten-radic">
+    <p>
+        ✳️ Potenciação
+        O que é:
+        Potenciação é uma operação matemática que representa a multiplicação de um número por ele mesmo várias vezes. É
+        formada por uma base e um expoente.
+    </p>
+
+    <p>
+        ✅ Como funciona:
+        A base é o número que será multiplicado, e o expoente indica quantas vezes ele será usado na multiplicação.
+        Exemplo: 3² = 3 × 3 = 9
+        Exemplo com expoente 0: 5⁰ = 1 (todo número elevado a zero é 1)
+    </p>
+
+    <p>
+        🧠 Onde é usada:
+        Cálculos de áreas e volumes
+        Crescimento populacional ou financeiro
+        Física e engenharia
+        Notação científica
+        Informática e algoritmos
+    </p>
+    <hr>
+    <p>
+        ✔️ Radiciação
+        O que é:
+        Radiciação é a operação inversa da potenciação. Consiste em encontrar um número que, elevado a um certo
+        expoente, resulta em outro número. O símbolo usado é a raiz (√).
+    </p>
+
+    <p>
+        ✅ Como funciona:
+        A raiz quadrada de 9 (√9) é 3, pois 3² = 9.
+        Também existem raízes cúbicas, quartas etc.
+        Exemplo: √16 = 4
+        Exemplo: ∛8 = 2 (raiz cúbica de 8)
+    </p>
+
+    <p>
+        🧠 Onde é usada:
+        Geometria (cálculo de lado de quadrados e cubos)
+        Física (cálculo de velocidade, força, energia)
+        Estatística (desvio padrão)
+        Engenharia e construções
+        Análise de algoritmos
+    </p>
+</select>
+
+<select id="calculos-poten-radic">
+    <h1>em produção</h1>
+</select>
+
+<select id="explicacao-Fatorial">
+    <p>
+        ❗ Fatorial
+        O que é:
+        Fatorial é o produto de todos os números inteiros positivos de 1 até um número natural. É representado por um
+        ponto de exclamação (!).
+    </p>
+
+    <p>
+        ✅ Como funciona:
+        O fatorial de um número **n** é:
+        n! = n × (n - 1) × (n - 2) × ... × 1
+        Exemplo: 4! = 4 × 3 × 2 × 1 = 24
+        Por definição, 0! = 1
+    </p>
+
+    <p>
+        🧠 Onde é usado:
+        Cálculo de combinações e permutações
+        Probabilidade
+        Matemática discreta
+        Algoritmos e programação
+        Análise de algoritmos recursivos
+    </p>
+
+
+</select>
+
+<select id="calculos-Fatorial">
+    <h1>em produção</h1>
+</select>
